@@ -13,8 +13,8 @@ PhishGuard analyzes URL character patterns using a trained machine learning mode
 - Machine learning based classification
 - Legitimate and phishing probability estimates
 - URL validation
-- Real-time prediction through a web interface
-- Responsive cybersecurity-themed UI
+- Real-time URL scanning
+- Responsive cybersecurity-themed interface
 
 ---
 
@@ -75,6 +75,9 @@ phishing-url-detector/
 ├── model/
 │   └── phishing_model.pkl
 │
+├── screenshots/
+│   └── example.png
+│
 ├── src/
 │   └── train_model.py
 │
@@ -88,10 +91,3 @@ phishing-url-detector/
 ├── app.py
 ├── README.md
 └── requirements.txt
-
-## 🔍 How It Works
-## 🖥️ Application Screenshots
-
-### URL Detection
-
-![URL Detection](screenshots/example.png)
