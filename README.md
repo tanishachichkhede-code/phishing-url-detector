@@ -88,3 +88,10 @@ phishing-url-detector/
 ├── app.py
 ├── README.md
 └── requirements.txt
+
+## 🔍 How It Works
+## 🖥️ Application Screenshots
+
+### URL Detection
+
+![URL Detection](screenshots/example.png)
