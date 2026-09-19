@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>PhishGuard | URL Security Scanner</title>
+
+    <link
+        rel="stylesheet"
+        href="{{ url_for('static', filename='style.css') }}"
+    >
+
+</head>
+
+
+<body>
+
+    <!--NAVBA -->
+
+    <nav class="navbar">
+
+        <div class="logo">
+
+            <div class="logo-icon">
+                🛡
+            </div>
+
+            <span>PhishGuard</span>
+
+        </div>
+
+
+        <div class="nav-links">
+
+            <a href="#scanner">
+                Scanner
+            </a>
+
+            <a href="#about">
+                About
+            </a>
+
+        </div>
+
+    </nav>
+
+
+
+    <!--MAIN CONTENT-->
+
+    <main>
+
+
+        <!-- HERO SECTION -->
+
+        <section class="hero">
+
+            <div class="status-badge">
+
+                <span class="status-dot"></span>
+
+                AI-POWERED URL SECURITY
+
+            </div>
+
+
+            <h1>
+                Detect
+                <span>Phishing URLs</span>
+                Before They Harm You
+            </h1>
+
+
+            <p class="hero-description">
+
+                Analyze suspicious links using a
+                machine learning model trained to
+                identify phishing URL patterns.
+
+            </p>
+
+
+        </section>
+
+
+
+        <!--SCANNER-->
+
+        <section
+            class="scanner-section"
+            id="scanner"
+        >
+
+            <div class="scanner-card">
+
+
+                <div class="card-header">
+
+                    <div>
+
+                        <p class="section-label">
+                            URL SECURITY SCANNER
+                        </p>
+
+                        <h2>
+                            Check a URL
+                        </h2>
+
+                    </div>
+
+
+                    <div class="shield-symbol">
+                        🛡
+                    </div>
+
+                </div>
+
+
+
+                <!-- URL INPUT -->
+
+                <div class="input-wrapper">
+
+                    <span class="input-icon">
+                        🔗
+                    </span>
+
+
+                    <input
+                        type="text"
+                        id="urlInput"
+                        placeholder="Enter a URL, e.g. https://example.com"
+                        autocomplete="off"
+                    >
+
+
+                    <button
+                        id="scanButton"
+                        onclick="scanURL()"
+                    >
+
+                        <span id="buttonText">
+                            Scan URL
+                        </span>
+
+                        <span
+                            id="buttonLoader"
+                            class="loader hidden"
+                        ></span>
+
+                    </button>
+
+                </div>
+
+
+                <p class="input-hint">
+
+                    Enter the complete URL you want to analyze.
+
+                </p>
+
+
+
+                <!-- RESULT -->
+
+                <div
+                    id="resultContainer"
+                    class="result-container hidden"
+                >
+
+                    <div class="result-header">
+
+                        <div
+                            id="resultIcon"
+                            class="result-icon"
+                        >
+                            ✓
+                        </div>
+
+
+                        <div>
+
+                            <p class="result-label">
+                                SCAN RESULT
+                            </p>
+
+                            <h3 id="resultTitle">
+                                Legitimate
+                            </h3>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <!-- URL DISPLAY -->
+
+                    <div class="scanned-url">
+
+                        <span>
+                            Scanned URL
+                        </span>
+
+                        <p id="scannedUrl">
+                            -
+                        </p>
+
+                    </div>
+
+
+
+                    <!-- PROBABILITY -->
+
+                    <div class="probability-section">
+
+                        <div class="probability-header">
+
+                            <span>
+                                Legitimate
+                            </span>
+
+                            <strong id="legitimateProbability">
+                                0%
+                            </strong>
+
+                        </div>
+
+
+                        <div class="progress-bar">
+
+                            <div
+                                id="legitimateBar"
+                                class="progress-fill legitimate"
+                            ></div>
+
+                        </div>
+
+
+
+                        <div class="probability-header">
+
+                            <span>
+                                Phishing
+                            </span>
+
+                            <strong id="phishingProbability">
+                                0%
+                            </strong>
+
+                        </div>
+
+
+                        <div class="progress-bar">
+
+                            <div
+                                id="phishingBar"
+                                class="progress-fill phishing"
+                            ></div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- ERROR -->
+
+                <div
+                    id="errorContainer"
+                    class="error-container hidden"
+                >
+
+                    <span class="error-icon">
+                        ⚠
+                    </span>
+
+                    <span id="errorMessage">
+                        Something went wrong.
+                    </span>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- 
+             FEATURE CARDS
+        -->
+
+        <section class="features-section">
+
+            <div class="section-heading">
+
+                <p class="section-label">
+                    HOW IT WORKS
+                </p>
+
+                <h2>
+                    Intelligent URL Analysis
+                </h2>
+
+            </div>
+
+
+
+            <div class="feature-grid">
+
+
+                <div class="feature-card">
+
+                    <div class="feature-icon">
+                        🔍
+                    </div>
+
+                    <h3>
+                        URL Analysis
+                    </h3>
+
+                    <p>
+                        The system analyzes character
+                        patterns within the submitted URL.
+                    </p>
+
+                </div>
+
+
+
+                <div class="feature-card">
+
+                    <div class="feature-icon">
+                        🧠
+                    </div>
+
+                    <h3>
+                        Machine Learning
+                    </h3>
+
+                    <p>
+                        A trained classification model
+                        evaluates the URL pattern.
+                    </p>
+
+                </div>
+
+
+
+                <div class="feature-card">
+
+                    <div class="feature-icon">
+                        ⚡
+                    </div>
+
+                    <h3>
+                        Instant Result
+                    </h3>
+
+                    <p>
+                        Receive a prediction and probability
+                        estimate within seconds.
+                    </p>
+
+                </div>
+
+
+            </div>
+
+        </section>
+
+
+
+        <!--ABOUT-->
+
+        <section
+            class="about-section"
+            id="about"
+        >
+
+            <div class="about-card">
+
+                <div class="about-icon">
+                    🛡
+                </div>
+
+
+                <div>
+
+                    <p class="section-label">
+                        ABOUT PHISHGUARD
+                    </p>
+
+                    <h2>
+                        Machine Learning for Safer Browsing
+                    </h2>
+
+                    <p>
+
+                        PhishGuard is a machine learning
+                        based URL classification project.
+                        It analyzes URL character patterns
+                        and predicts whether a URL is
+                        potentially phishing or legitimate.
+
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+
+    <!--FOOTER-->
+
+    <footer>
+
+        <p>
+            PhishGuard
+            <span>•</span>
+            Machine Learning URL Security
+        </p>
+
+        <p>
+            Built with Python, Flask & Machine Learning
+        </p>
+
+    </footer>
+
+
+
+    <!-- JAVASCRIPT -->
+
+    <script
+        src="{{ url_for('static', filename='script.js') }}"
+    ></script>
+
+
+</body>
+
+</html>
